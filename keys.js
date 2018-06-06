@@ -1,11 +1,11 @@
 exports.twitter = {
-  consumerkey: process.env.TWITTERCONSUMERKEY,
-  consumersecret: process.env.TWITTERCONSUMERSECRET,
-  accesstokenkey: process.env.TWITTERACCESSTOKENKEY,
-  accesstokensecret: process.env.TWITTERACCESSTOKENSECRET
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 };
 
 exports.spotify = {
-  id: process.env.SPOTIFYID,
-  secret: process.env.SPOTIFYSECRET
+  id: process.env.SPOTIFY_ID,
+  secret: process.env.SPOTIFY_SECRET
 };
