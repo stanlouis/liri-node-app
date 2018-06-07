@@ -1,5 +1,7 @@
 const urlencode = require("urlencode");
 const request = require("request");
+const tags = require("common-tags");
+
 module.exports = {
   showSongsInfo: (song, spotify) => {
     spotify.search(
@@ -12,11 +14,11 @@ module.exports = {
           return console.log("Error occurred: " + err);
         }
         var info = data.tracks.items[0];
-        console.log(`
+        console.log(tags.stripIndents`
           Artist(s) name: ${info.artists[0].name}
           Song's name: ${info.name}
           Song's link: ${info.preview_url}
-          Song's Album: ${info.album.name}            
+          Song's Album: ${info.album.name}
         `);
       }
     );
@@ -27,7 +29,7 @@ module.exports = {
       if (!err) {
         for (let tweet of tweets) {
           console.log(
-            `
+            tags.stripIndents`
               tweet: ${tweet.text}
               tweet date and time: ${tweet.created_at}`
           );
@@ -45,10 +47,8 @@ module.exports = {
     request(url, function(error, response, body) {
       // If the request is successful (i.e. if the response status code is 200)
       if (!error && response.statusCode === 200) {
-        // Parse the body of the site and recover just the imdbRating
-        // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
         const bodyObj = JSON.parse(body);
-        console.log(`
+        const output = tags.stripIndents`
           Movie's title: ${bodyObj.Title}
           Movie's title: ${bodyObj.Year}
           Movie's IMDB rating: ${bodyObj.imdbRating}
@@ -57,8 +57,8 @@ module.exports = {
           Movie's language: ${bodyObj.Language}
           Movie's plot: ${bodyObj.Plot}
           Movie's actors: ${bodyObj.Actors}
-          
-          `);
+          `;
+        console.log(output);
       }
     });
   }
