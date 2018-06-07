@@ -17,19 +17,21 @@ const liriCommand = process.argv[2];
 let liriChoice = "";
 
 for (let index = 3; index < nodeArgs.length; index++) {
-  liriChoice += nodeArgs[index] + ' ';
+  liriChoice += nodeArgs[index] + " ";
 }
-
 
 if (liriCommand === "my-tweets") {
   utils.showTweets(client);
 } else if (liriCommand === "spotify-this-song") {
-  utils.showSongsInfo(liriChoice);
+  if (liriChoice === "") {
+    utils.showSongsInfo("The Sign", spotify);
+  } else {
+    utils.showSongsInfo(liriChoice, spotify);
+  }
 } else if (liriCommand === "movie-this") {
-  if(liriChoice === '') {
-    utils.showMovieInfo('Mr. Nobody')
+  if (liriChoice === "") {
+    utils.showMovieInfo("Mr. Nobody");
   } else {
     utils.showMovieInfo(liriChoice);
   }
-
 }
