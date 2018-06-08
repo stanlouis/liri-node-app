@@ -39,7 +39,7 @@ if (liriCommand === "my-tweets") {
   utils.showTweets(client);
 } else if (liriCommand === "spotify-this-song") {
   if (liriChoice === "") {
-    utils.showSongsInfo("The Sign", spotify);
+    utils.showSongsInfo("The Sign Ace of Base", spotify);
   } else {
     utils.showSongsInfo(liriChoice, spotify);
   }
